@@ -18,12 +18,16 @@ import javafx.stage.Stage;
 public class UltimateMain extends Application {
     
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage) throws Exception 
+    {
+        
         Parent root = FXMLLoader.load(getClass().getResource("GUI/UltimateGUI.fxml"));
         
         Scene scene = new Scene(root);
-        
         stage.setScene(scene);
+        stage.setResizable(false);
+        stage.setTitle("Tic Tac Toe");
+        stage.centerOnScreen();
         stage.show();
     }
 
