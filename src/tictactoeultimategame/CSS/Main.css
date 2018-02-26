@@ -8,3 +8,9 @@ and open the template in the editor.
     Author     : mr.Andersen
 */
 
+#pane 
+{
+    -fx-background-image: url(../tictactoeultimategame/Images/space.jpg);
+    -fx-background-repeat: stretch;   
+    -fx-background-position: center;
+}
