@@ -10,6 +10,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
@@ -19,7 +20,7 @@ import javafx.scene.layout.GridPane;
  * @author mr.Andersen
  */
 public class UltimateGUIController implements Initializable {
-    
+
     private Label label;
     @FXML
     private Button btnNewGame;
@@ -205,20 +206,38 @@ public class UltimateGUIController implements Initializable {
     private Button btn826;
     @FXML
     private Button btn926;
-    
-    @FXML
-    private void handleButtonAction(ActionEvent event) {
-        System.out.println("You clicked me!");
-        label.setText("Hello World!");
-    }
-    
-    @Override
+@Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+        
+    }
+    @FXML
+    private void handleButtonAction(ActionEvent event) {
+     try {
+//
+//            Integer row = GridPane.getRowIndex((Node) event.getSource());
+//            Integer col = GridPane.getColumnIndex((Node) event.getSource());
+//            int r = (row == null) ? 0 : row;
+//            int c = (col == null) ? 0 : col;
+            
+                    Button btn = (Button) event.getSource();
+                    System.out.println();
+
+                            String xOrO =  "X" ; 
+                            btn.setText(xOrO);
+                           
+
+             
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
 
     @FXML
     private void handleNewGame(ActionEvent event) {
     }
     
+
+
 }
