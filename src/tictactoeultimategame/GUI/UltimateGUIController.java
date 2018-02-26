@@ -25,22 +25,11 @@ import tictactoeultimategame.MOVE.Move;
  *
  * @author mr.Andersen
  */
-<<<<<<< HEAD
-public class UltimateGUIController implements Initializable 
-{
 
-    IField field;
-    GameManager gm;
-    Move move;
-    
-=======
 public class UltimateGUIController implements Initializable {
-
->>>>>>> 7e6a9b3870e7743475e23ff0224f37a9e1256f6d
     private Label label;
     @FXML
     private Button btnNewGame;
-    private GridPane gridPane;
     @FXML
     private Button btn1;
     @FXML
@@ -81,8 +70,6 @@ public class UltimateGUIController implements Initializable {
     private Button btn81;
     @FXML
     private Button btn91;
-    @FXML
-    private GridPane gridPane2;
     @FXML
     private Button btn12;
     @FXML
@@ -209,7 +196,10 @@ public class UltimateGUIController implements Initializable {
     private Button btn826;
     @FXML
     private Button btn926;
-<<<<<<< HEAD
+    @FXML
+    private GridPane gridPane;
+    @FXML
+    private GridPane gridPane2;
     @FXML
     private GridPane gridPane3;
     @FXML
@@ -230,36 +220,8 @@ public class UltimateGUIController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) 
     {
         
-    }    
-=======
-@Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-        
-    }
-    @FXML
-    private void handleButtonAction(ActionEvent event) {
-     try {
-//
-//            Integer row = GridPane.getRowIndex((Node) event.getSource());
-//            Integer col = GridPane.getColumnIndex((Node) event.getSource());
-//            int r = (row == null) ? 0 : row;
-//            int c = (col == null) ? 0 : col;
-            
-                    Button btn = (Button) event.getSource();
-                    System.out.println();
-
-                            String xOrO =  "X" ; 
-                            btn.setText(xOrO);
-                           
-
-             
-
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-    }
->>>>>>> 7e6a9b3870e7743475e23ff0224f37a9e1256f6d
+    }  
+    
 
     @FXML
     private void handleNewGame(ActionEvent event) 
