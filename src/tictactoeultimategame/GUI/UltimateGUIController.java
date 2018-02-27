@@ -6,7 +6,12 @@
 package tictactoeultimategame.GUI;
 
 import java.net.URL;
+<<<<<<< HEAD
 import java.util.ArrayList;
+=======
+import static java.nio.file.Files.move;
+import java.util.List;
+>>>>>>> dc9b504f994dca730ca42cba3d5e2984494eb90b
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -16,27 +21,34 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
+<<<<<<< HEAD
 import javafx.scene.layout.RowConstraints;
 import tictactoeultimategame.FIELD.Field;
 import tictactoeultimategame.FIELD.IField;
 import tictactoeultimategame.GAME.GameManager;
 import tictactoeultimategame.GAME.GameState;
+=======
+import tictactoeultimategame.FIELD.IField;
+import tictactoeultimategame.GAME.GameManager;
+import tictactoeultimategame.MOVE.IMove;
+>>>>>>> dc9b504f994dca730ca42cba3d5e2984494eb90b
 import tictactoeultimategame.MOVE.Move;
 
 /**
  *
  * @author mr.Andersen
  */
-public class UltimateGUIController implements Initializable {
 
+<<<<<<< HEAD
     Move move = new Move();
     GameState gamestate = new GameState();
 
+=======
+public class UltimateGUIController implements Initializable {
+>>>>>>> dc9b504f994dca730ca42cba3d5e2984494eb90b
     private Label label;
     @FXML
     private Button btnNewGame;
-    @FXML
-    private GridPane gridPane;
     @FXML
     private Button btn1;
     @FXML
@@ -78,8 +90,6 @@ public class UltimateGUIController implements Initializable {
     @FXML
     private Button btn91;
     @FXML
-    private GridPane gridPane2;
-    @FXML
     private Button btn12;
     @FXML
     private Button btn22;
@@ -97,8 +107,6 @@ public class UltimateGUIController implements Initializable {
     private Button btn82;
     @FXML
     private Button btn92;
-    @FXML
-    private GridPane gridPane21;
     @FXML
     private Button btn121;
     @FXML
@@ -118,8 +126,6 @@ public class UltimateGUIController implements Initializable {
     @FXML
     private Button btn921;
     @FXML
-    private GridPane gridPane22;
-    @FXML
     private Button btn122;
     @FXML
     private Button btn222;
@@ -137,8 +143,6 @@ public class UltimateGUIController implements Initializable {
     private Button btn822;
     @FXML
     private Button btn922;
-    @FXML
-    private GridPane gridPane23;
     @FXML
     private Button btn123;
     @FXML
@@ -158,8 +162,6 @@ public class UltimateGUIController implements Initializable {
     @FXML
     private Button btn923;
     @FXML
-    private GridPane gridPane24;
-    @FXML
     private Button btn124;
     @FXML
     private Button btn224;
@@ -177,8 +179,6 @@ public class UltimateGUIController implements Initializable {
     private Button btn824;
     @FXML
     private Button btn924;
-    @FXML
-    private GridPane gridPane25;
     @FXML
     private Button btn125;
     @FXML
@@ -198,8 +198,6 @@ public class UltimateGUIController implements Initializable {
     @FXML
     private Button btn925;
     @FXML
-    private GridPane gridPane26;
-    @FXML
     private Button btn126;
     @FXML
     private Button btn226;
@@ -217,6 +215,7 @@ public class UltimateGUIController implements Initializable {
     private Button btn826;
     @FXML
     private Button btn926;
+<<<<<<< HEAD
     private IField game;
     @FXML
     private GridPane gridpanewhole;
@@ -265,9 +264,51 @@ int countTurn=0;
         gm.UpdateBoard(move);
         board[row][col] = "x";
 
-    }
+=======
+    @FXML
+    private GridPane gridPane;
+    @FXML
+    private GridPane gridPane2;
+    @FXML
+    private GridPane gridPane3;
+    @FXML
+    private GridPane gridPane4;
+    @FXML
+    private GridPane gridPane5;
+    @FXML
+    private GridPane gridPane6;
+    @FXML
+    private GridPane gridPane7;
+    @FXML
+    private GridPane gridPane8;
+    @FXML
+    private GridPane gridPane9;
+    
+    
+    @Override
+    public void initialize(URL url, ResourceBundle rb) 
+    {
+        
+    }  
+    
 
     @FXML
+    private void handleNewGame(ActionEvent event) 
+    {
+//        field.clearBoard();
+//        field.newGame();
+        clearBoard();
+    }
+    
+    private void clearBoard()
+    {
+        
+>>>>>>> dc9b504f994dca730ca42cba3d5e2984494eb90b
+    }
+
+    
+    @FXML
+<<<<<<< HEAD
     private void handleNewGame(ActionEvent event) {
         gm.clearBoard();
         for (Node m : gridpanewhole.getChildren()) {
@@ -277,6 +318,27 @@ int countTurn=0;
 
                     Button btn = (Button) n;
                     btn.setText("");
+=======
+    private void handleButtonAction(ActionEvent event) 
+    {
+        
+        
+        Button btn = (Button) event.getSource();
+       
+        Integer row = gridPane.getRowIndex((Node) event.getSource());
+        Integer col = gridPane.getColumnIndex((Node) event.getSource());
+        
+
+        int r = (row == null) ? 0 : row;
+        int c = (col == null) ? 0 : col;
+        c++;
+        r++;
+        btn.setText("X");
+        
+        System.out.println(r + "\t" + c);
+    }
+    
+>>>>>>> dc9b504f994dca730ca42cba3d5e2984494eb90b
 
                 }
             } catch (java.lang.ClassCastException j) {

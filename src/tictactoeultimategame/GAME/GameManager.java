@@ -57,7 +57,8 @@ public class GameManager
      * but could load a saved game.
      * @param bot The bot to play against in vsBot mode.
      */
-    public GameManager(IGameState currentState, IBot bot) {
+    public GameManager(IGameState currentState, IBot bot) 
+    {
         this.currentState = currentState;
         mode = GameMode.HumanVsBot;
         this.bot = bot;
@@ -71,7 +72,8 @@ public class GameManager
      * @param bot The first bot to play.
      * @param bot2 The second bot to play.
      */
-    public GameManager(IGameState currentState, IBot bot, IBot bot2) {
+    public GameManager(IGameState currentState, IBot bot, IBot bot2) 
+    {
         this.currentState = currentState;
         mode = GameMode.BotVsBot;
         this.bot = bot;

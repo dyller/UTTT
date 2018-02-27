@@ -7,7 +7,8 @@ import tictactoeultimategame.MOVE.IMove;
  *
  * @author mjl
  */
-public interface IField {
+public interface IField 
+{
 
     String AVAILABLE_FIELD = "-1";
     String EMPTY_FIELD = ".";
@@ -69,5 +70,9 @@ public interface IField {
      * @param macroboard the Macroboard to set (the overarching 3x3 board)
      */
     void setMacroboard(String[][] macroboard);
+    
+    public void newGame();
+
+    
     
 }
