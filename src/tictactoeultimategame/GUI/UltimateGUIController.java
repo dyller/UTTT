@@ -6,12 +6,11 @@
 package tictactoeultimategame.GUI;
 
 import java.net.URL;
-<<<<<<< HEAD
+
 import java.util.ArrayList;
-=======
+
 import static java.nio.file.Files.move;
 import java.util.List;
->>>>>>> dc9b504f994dca730ca42cba3d5e2984494eb90b
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -21,17 +20,16 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
-<<<<<<< HEAD
+
 import javafx.scene.layout.RowConstraints;
 import tictactoeultimategame.FIELD.Field;
 import tictactoeultimategame.FIELD.IField;
 import tictactoeultimategame.GAME.GameManager;
 import tictactoeultimategame.GAME.GameState;
-=======
+
 import tictactoeultimategame.FIELD.IField;
 import tictactoeultimategame.GAME.GameManager;
 import tictactoeultimategame.MOVE.IMove;
->>>>>>> dc9b504f994dca730ca42cba3d5e2984494eb90b
 import tictactoeultimategame.MOVE.Move;
 
 /**
@@ -39,13 +37,11 @@ import tictactoeultimategame.MOVE.Move;
  * @author mr.Andersen
  */
 
-<<<<<<< HEAD
-    Move move = new Move();
-    GameState gamestate = new GameState();
 
-=======
+   
 public class UltimateGUIController implements Initializable {
->>>>>>> dc9b504f994dca730ca42cba3d5e2984494eb90b
+ Move move = new Move();
+    GameState gamestate = new GameState();
     private Label label;
     @FXML
     private Button btnNewGame;
@@ -215,7 +211,7 @@ public class UltimateGUIController implements Initializable {
     private Button btn826;
     @FXML
     private Button btn926;
-<<<<<<< HEAD
+
     private IField game;
     @FXML
     private GridPane gridpanewhole;
@@ -224,6 +220,22 @@ public class UltimateGUIController implements Initializable {
     int row;
     String[][] board = new String[9][9];
     GameManager gm;
+    @FXML
+    private GridPane gridPane2;
+    @FXML
+    private GridPane gridPane3;
+    @FXML
+    private GridPane gridPane4;
+    @FXML
+    private GridPane gridPane5;
+    @FXML
+    private GridPane gridPane6;
+    @FXML
+    private GridPane gridPane7;
+    @FXML
+    private GridPane gridPane8;
+    @FXML
+    private GridPane gridPane9;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -263,52 +275,9 @@ int countTurn=0;
         move.setY(col);
         gm.UpdateBoard(move);
         board[row][col] = "x";
-
-=======
-    @FXML
-    private GridPane gridPane;
-    @FXML
-    private GridPane gridPane2;
-    @FXML
-    private GridPane gridPane3;
-    @FXML
-    private GridPane gridPane4;
-    @FXML
-    private GridPane gridPane5;
-    @FXML
-    private GridPane gridPane6;
-    @FXML
-    private GridPane gridPane7;
-    @FXML
-    private GridPane gridPane8;
-    @FXML
-    private GridPane gridPane9;
-    
-    
-    @Override
-    public void initialize(URL url, ResourceBundle rb) 
-    {
-        
-    }  
-    
-
-    @FXML
-    private void handleNewGame(ActionEvent event) 
-    {
-//        field.clearBoard();
-//        field.newGame();
-        clearBoard();
     }
-    
-    private void clearBoard()
-    {
-        
->>>>>>> dc9b504f994dca730ca42cba3d5e2984494eb90b
-    }
-
-    
+   
     @FXML
-<<<<<<< HEAD
     private void handleNewGame(ActionEvent event) {
         gm.clearBoard();
         for (Node m : gridpanewhole.getChildren()) {
@@ -318,27 +287,6 @@ int countTurn=0;
 
                     Button btn = (Button) n;
                     btn.setText("");
-=======
-    private void handleButtonAction(ActionEvent event) 
-    {
-        
-        
-        Button btn = (Button) event.getSource();
-       
-        Integer row = gridPane.getRowIndex((Node) event.getSource());
-        Integer col = gridPane.getColumnIndex((Node) event.getSource());
-        
-
-        int r = (row == null) ? 0 : row;
-        int c = (col == null) ? 0 : col;
-        c++;
-        r++;
-        btn.setText("X");
-        
-        System.out.println(r + "\t" + c);
-    }
-    
->>>>>>> dc9b504f994dca730ca42cba3d5e2984494eb90b
 
                 }
             } catch (java.lang.ClassCastException j) {

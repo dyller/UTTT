@@ -31,23 +31,6 @@ int X;
     @Override
     public int getY() {
     return Y;
-=======
- * @author mr.Andersen
- */
-public class Move implements IMove 
-{
 
-    @Override
-    public int getX() 
-    {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public int getY() 
-    {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
->>>>>>> dc9b504f994dca730ca42cba3d5e2984494eb90b
-    }
-    
+}
 }
