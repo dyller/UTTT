@@ -1,6 +1,7 @@
 package tictactoeultimategame.GAME;
 
 import tictactoeultimategame.BOT.IBot;
+import tictactoeultimategame.FIELD.Field;
 import tictactoeultimategame.MOVE.IMove;
 //import java.nio.file.Files.move(Path, Path, CopyOption[]).IMove;
 
@@ -16,7 +17,12 @@ import tictactoeultimategame.MOVE.IMove;
  */
 public class GameManager 
 {
-    
+
+    public void clearBoard() {
+    currentState.getField().clearBoard();}
+
+
+    //String[][] board = new String[9][9];
     /**
      * Three different game modes.
      */
@@ -28,7 +34,7 @@ public class GameManager
     }
     
     private final IGameState currentState;
-    private int currentPlayer = 0; //player0 == 0 && player1 == 1
+    public int currentPlayer = 0; //player0 == 0 && player1 == 1
     private GameMode mode = GameMode.HumanVsHuman;
     private IBot bot = null;
     private IBot bot2 = null;
@@ -77,22 +83,23 @@ public class GameManager
      * @param move The next user move
      * @return Returns true if the update was successful, false otherwise.
      */
-    public Boolean UpdateGame(IMove move)
+    public int UpdateGame(int countTurn)
     {
-        //Verify the new move
-        if(!VerifyMoveLegality(move)) 
-        { 
-            return false; 
-        }
-        
-        //Update the currentState
-        UpdateBoard(move);
-        UpdateMacroboard(move);
-        
-        //Update currentPlayer
-        currentPlayer = (currentPlayer + 1) % 2;
-        
-        return true;
+//        //Verify the new move
+//        if(!VerifyMoveLegality(move)) 
+//        { 
+//            return false; 
+//        }
+//        
+//        //Update the currentState
+//        UpdateBoard(move);
+//        UpdateMacroboard(move);
+//        
+//        //Update currentPlayer
+//        currentPlayer = (currentPlayer + 1) % 2;
+//        
+//        return true;
+        return countTurn%2;
     }
     
     /**
@@ -113,7 +120,7 @@ public class GameManager
             IMove botMove = bot.doMove(currentState);
             
             //Be aware that your bots might perform illegal moves.
-            return UpdateGame(botMove);
+//            return UpdateGame(botMove);
         }
         
         //Check bot is not equal to null, and throw an exception if it is.
@@ -124,7 +131,7 @@ public class GameManager
         throw new UnsupportedOperationException("Not supported yet."); 
     }
     
-    private Boolean VerifyMoveLegality(IMove move)
+    public Boolean VerifyMoveLegality(IMove move)
     {
         //Test if the move is legal   
         //NOTE: should also check whether the move is placed on an occupied spot.
@@ -133,13 +140,39 @@ public class GameManager
         return currentState.getField().isInActiveMicroboard(move.getX(), move.getY());
     }
     
-    private void UpdateBoard(IMove move)
+    public void UpdateBoard(IMove move)
     {
-       //TODO: Update the board to the new state 
-        throw new UnsupportedOperationException("Not supported yet."); 
+       String[][] board = currentState.getField().getBoard();
+       board[move.getX()][move.getY()]="x"; 
+       currentState.getField().setBoard(board);
+      checkWinner(move);
+    }
+     void checkWinner(IMove move) {
+       String[][] board =currentState.getField().getBoard();
+       int row=move.getX();
+       int col=move.getY();
+       if( (board[row][col/3*3+0]== "x"
+               &&board[row][col/3*3+1]=="x"
+               &&board[row][col/3*3+2]=="x")||
+               (board[row/3*3+0][col]== "x"
+               &&board[row/3*3+1][col]=="x"
+               &&board[row/3*3+2][col]=="x")||
+               (board[row/3*3+1][col/3*3+1]== "x"&&(
+               board[row/3*3+0][col/3*3+0]== "x"&&
+               board[row/3*3+2][col/3*3+2]== "x"||
+               board[row/3*3+0][col/3*3+2]== "x"&&
+               board[row/3*3+2][col/3*3+0]== "x")
+               ))
+          
+       {
+           System.out.println("you won");
+       
+       }
+       
+    
     }
     
-    private void UpdateMacroboard(IMove move)
+    public void UpdateMacroboard(IMove move)
     {
        //TODO: Update the macroboard to the new state 
        throw new UnsupportedOperationException("Not supported yet."); 
