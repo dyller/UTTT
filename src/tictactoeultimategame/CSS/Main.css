@@ -8,9 +8,18 @@ and open the template in the editor.
     Author     : mr.Andersen
 */
 
-#pane 
+#panes
 {
-    -fx-background-image: url(../tictactoeultimategame/Images/space.jpg);
+    -fx-background-image: url(../tictactoeultimategame.Images/space.jpg);
     -fx-background-repeat: stretch;   
     -fx-background-position: center;
+}
+
+.button
+{
+    -fx-background-color: 
+        linear-gradient(from 0% 93% to 0% 100%, #a34313 0%, #903b12 100%),
+        #9d4024,
+        #d86e3a,
+        radial-gradient(center 50% 50%, radius 100%, #ea7f4b, #c54e2c);
 }

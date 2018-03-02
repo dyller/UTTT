@@ -149,11 +149,13 @@ public class GameManager
        currentState.getField().setBoard(board);
       checkWinner(move);
     }
-     void checkWinner(IMove move) {
+     void checkWinner(IMove move) 
+     {
        String[][] board =currentState.getField().getBoard();
        int row=move.getX();
        int col=move.getY();
-       if( (board[row][col/3*3+0]== "x"
+       
+       if(     (board[row][col/3*3+0]== "x"
                &&board[row][col/3*3+1]=="x"
                &&board[row][col/3*3+2]=="x")||
                (board[row/3*3+0][col]== "x"
@@ -168,7 +170,6 @@ public class GameManager
           
        {
            System.out.println("you won");
-       
        }
        
     
