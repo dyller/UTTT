@@ -21,6 +21,10 @@ public class GameManager
     public void clearBoard() {
     currentState.getField().clearBoard();}
 
+    public boolean UpdateBoard(String x) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 
     //String[][] board = new String[9][9];
     /**
@@ -149,13 +153,12 @@ public class GameManager
        currentState.getField().setBoard(board);
       checkWinner(move);
     }
-     void checkWinner(IMove move) 
-     {
+     void checkWinner(IMove move) {
        String[][] board =currentState.getField().getBoard();
        int row=move.getX();
        int col=move.getY();
        
-       if(     (board[row][col/3*3+0]== "x"
+       if(      (board[row][col/3*3+0]== "x"
                &&board[row][col/3*3+1]=="x"
                &&board[row][col/3*3+2]=="x")||
                (board[row/3*3+0][col]== "x"
