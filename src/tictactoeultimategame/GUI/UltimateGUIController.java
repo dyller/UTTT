@@ -84,6 +84,26 @@ public class UltimateGUIController implements Initializable {
         gamestate.setRoundNumber(0);
         gm = new GameManager(gamestate);
         
+        gm.clearBoard();
+        for (Node m : gridpanewhole.getChildren()) 
+        {
+            try 
+            {
+                GridPane grid = (GridPane) m;
+                for (Node n : grid.getChildren()) 
+                {
+                    Button btn = (Button) n;
+                    btn.setText("  ");
+                }
+            } 
+            
+            catch (java.lang.ClassCastException j) 
+            {
+
+            }
+        }
+        
+        
     }
     
     
