@@ -149,29 +149,40 @@ public class GameManager
        currentState.getField().setBoard(board);
       checkWinner(move);
     }
-     void checkWinner(IMove move) {
-       String[][] board =currentState.getField().getBoard();
+      public boolean checkWinner(IMove move) {
+       String[][] board =currentState.getField().getMacroboard();
+       String xOrO = (currentPlayer+1)%2 == 0 ? "X" : "O";
        int row=move.getX();
        int col=move.getY();
-       if( (board[row][col/3*3+0]== "x"
-               &&board[row][col/3*3+1]=="x"
-               &&board[row][col/3*3+2]=="x")||
-               (board[row/3*3+0][col]== "x"
-               &&board[row/3*3+1][col]=="x"
-               &&board[row/3*3+2][col]=="x")||
-               (board[row/3*3+1][col/3*3+1]== "x"&&(
-               board[row/3*3+0][col/3*3+0]== "x"&&
-               board[row/3*3+2][col/3*3+2]== "x"||
-               board[row/3*3+0][col/3*3+2]== "x"&&
-               board[row/3*3+2][col/3*3+0]== "x")
-               ))
-          
-       {
-           System.out.println("you won");
        
+       if( (board[row][col/3*3+0]== xOrO
+               &&board[row][col/3*3+1]==xOrO
+               &&board[row][col/3*3+2]==xOrO)
+               
+               || 
+               (board[row/3*3+0][col]== xOrO
+               &&board[row/3*3+1][col]==xOrO
+               &&board[row/3*3+2][col]==xOrO)
+               
+               ||
+               (board[row/3*3+1][col/3*3+1]== xOrO&&(
+               board[row/3*3+0][col/3*3+0]== xOrO&&
+               board[row/3*3+2][col/3*3+2]== xOrO
+               
+               
+               ||
+               board[row/3*3+0][col/3*3+2]== xOrO&&
+               board[row/3*3+2][col/3*3+0]== xOrO)
+               ))
+       {
+          String [][] outerBoard= currentState.getField().getBoard();
+          outerBoard[row/3][col/3]=xOrO;
+          currentState.getField().setBoard(outerBoard);
+           
+       return true;
        }
        
-    
+    return false;
     }
     
     public void UpdateMacroboard(IMove move)

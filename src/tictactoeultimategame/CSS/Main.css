@@ -10,7 +10,7 @@ and open the template in the editor.
 
 #pane 
 {
-    -fx-background-image: url(../tictactoeultimategame/Images/space.jpg);
+    -fx-background-image: url(/tictactoeultimategame.Images/space.jpg);
     -fx-background-repeat: stretch;   
     -fx-background-position: center;
 }

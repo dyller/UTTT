@@ -36,11 +36,9 @@ import tictactoeultimategame.MOVE.Move;
  *
  * @author mr.Andersen
  */
-
-
-   
 public class UltimateGUIController implements Initializable {
- Move move = new Move();
+
+    Move move = new Move();
     GameState gamestate = new GameState();
     private Label label;
     @FXML
@@ -212,7 +210,7 @@ public class UltimateGUIController implements Initializable {
     @FXML
     private Button btn926;
 
-    private IField game;
+    private IField game = new Field();
     @FXML
     private GridPane gridpanewhole;
     Node node;
@@ -245,38 +243,77 @@ public class UltimateGUIController implements Initializable {
         gamestate.setRoundNumber(0);
         gm = new GameManager(gamestate);
     }
-int countTurn=0;
+
     @FXML
     private void handleButtonAction(ActionEvent event) {
-
-        Button btn = (Button) event.getSource();
-        System.out.println();
-        int player= gm.UpdateGame(countTurn);
-        String xOrO = player == 0 ? "X" : "O";
-        btn.setText(xOrO);
+        
+        
         getPosition(event);
-        countTurn++;
+        
+        for (IMove imive : gamestate.getField().getAvailableMoves()) {
+            
+            if(imive.getX()==move.getY()&&imive.getY()==move.getX())
+       {
+           System.out.println("okay");
+        newAction(event);
+        setupMap();
+       }
+        }
+       
         
     }
-
-    void getPosition(Event event) {
-        node = (Node) event.getSource();
-        Integer rowMicro = GridPane.getRowIndex(node);
-        Integer colMicro = GridPane.getColumnIndex(node);
-        int rMicro = (rowMicro == null) ? 0 : rowMicro;
-        int cMicro = (colMicro == null) ? 0 : colMicro;
+    
+    
+    void getPosition(Event event)
+    {
+     node = (Node) event.getSource();
         Integer rowsOuter = GridPane.getRowIndex(node.getParent());
         Integer colsOuter = GridPane.getColumnIndex(node.getParent());
         int rsOuter = (rowsOuter == null) ? 0 : rowsOuter;
         int csOuter = (colsOuter == null) ? 0 : colsOuter;
+          Integer rowMicro = GridPane.getRowIndex(node);
+        Integer colMicro = GridPane.getColumnIndex(node);
+        int rMicro = (rowMicro == null) ? 0 : rowMicro;
+        int cMicro = (colMicro == null) ? 0 : colMicro;
         row = rsOuter * 3 + rMicro;
         col = csOuter * 3 + cMicro;
         move.setX(row);
         move.setY(col);
-        gm.UpdateBoard(move);
-        board[row][col] = "x";
     }
-   
+    void newAction(Event event)
+    {
+        
+        String[][] boards = gamestate.getField().getBoard();
+        String xorO = gamestate.getMoveNumber()%2 == 0 ? "X" : "O";
+       gamestate.setMoveNumber(gamestate.getMoveNumber()+1);
+       
+        boards[row][col]=xorO;
+        gamestate.getField().setBoard(boards);
+    
+    }
+
+    void setupMap() {
+        int k = 0, j = 0;
+
+        String[][] board = gamestate.getField().getBoard();
+        for (String[] strings : board) {
+
+            for (String string : strings) {
+                String color = string == "X" ? "X" : "O";
+                if (string != null) {
+                    GridPane grid = (GridPane) gridpanewhole.getChildren().get((k/ 3)*3 + j / 3);
+                    Button btn = (Button) grid.getChildren().get((k % 3)*3 + j % 3);
+                  
+                    btn.setText(color);
+                }
+                j++;
+            }
+            j = 0;
+
+            k++;
+        }
+    }
+
     @FXML
     private void handleNewGame(ActionEvent event) {
         gm.clearBoard();
@@ -296,3 +333,11 @@ int countTurn=0;
     }
 
 }
+ /*for (String[] strings : game.getBoard()) {
+            for (String string : strings) {
+                System.out.print(string+"\t");
+            }
+            System.out.println("");
+        }
+
+*/

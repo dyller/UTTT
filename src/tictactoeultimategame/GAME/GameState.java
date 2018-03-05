@@ -15,31 +15,33 @@ import tictactoeultimategame.FIELD.IField;
  * @author jacob
  */
 public class GameState implements IGameState{
-  
+    int moveNumber;
+    int roundNumber;
     Field field= new Field();
     @Override
     public IField getField() {
     return field;
+  
       }
 
     @Override
     public int getMoveNumber() {
 
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+     return moveNumber;
     }
 
     @Override
     public void setMoveNumber(int moveNumber) {
+        this.moveNumber=moveNumber;
     }
 
     @Override
     public int getRoundNumber() {
 
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    return roundNumber;}
 
     public void setRoundNumber(int roundNumber) {
-
+this.roundNumber=roundNumber;
     }
     
 }
