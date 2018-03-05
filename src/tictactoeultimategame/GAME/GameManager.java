@@ -21,6 +21,10 @@ public class GameManager
     public void clearBoard() {
     currentState.getField().clearBoard();}
 
+    public boolean UpdateBoard(String x) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 
     //String[][] board = new String[9][9];
     /**
@@ -155,6 +159,7 @@ public class GameManager
        int row=move.getX();
        int col=move.getY();
        
+<<<<<<< HEAD
        if( (board[row][col/3*3+0]== xOrO
                &&board[row][col/3*3+1]==xOrO
                &&board[row][col/3*3+2]==xOrO)
@@ -173,13 +178,30 @@ public class GameManager
                ||
                board[row/3*3+0][col/3*3+2]== xOrO&&
                board[row/3*3+2][col/3*3+0]== xOrO)
+=======
+       if(      (board[row][col/3*3+0]== "x"
+               &&board[row][col/3*3+1]=="x"
+               &&board[row][col/3*3+2]=="x")||
+               (board[row/3*3+0][col]== "x"
+               &&board[row/3*3+1][col]=="x"
+               &&board[row/3*3+2][col]=="x")||
+               (board[row/3*3+1][col/3*3+1]== "x"&&(
+               board[row/3*3+0][col/3*3+0]== "x"&&
+               board[row/3*3+2][col/3*3+2]== "x"||
+               board[row/3*3+0][col/3*3+2]== "x"&&
+               board[row/3*3+2][col/3*3+0]== "x")
+>>>>>>> d34361e8d8bd4678e642289b9086b6c798289dcc
                ))
        {
+<<<<<<< HEAD
           String [][] outerBoard= currentState.getField().getBoard();
           outerBoard[row/3][col/3]=xOrO;
           currentState.getField().setBoard(outerBoard);
            
        return true;
+=======
+           System.out.println("you won");
+>>>>>>> d34361e8d8bd4678e642289b9086b6c798289dcc
        }
        
     return false;
